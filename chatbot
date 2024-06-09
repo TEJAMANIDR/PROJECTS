@@ -1,0 +1,109 @@
+# simple bot programming
+Print(“Hello!!!!”,”\n”, ”Welcome to bot”)
+def greet_user():
+    print("What is your name?")
+    # Simulating user input
+    name = input()
+    print(f"Nice to meet you, {name}!")
+    return name
+
+def get_user_age():
+    print("How old are you?")
+    # Simulating user input
+    try:
+        age = int(input()) 
+        if age < 0:
+            raise ValueError("Age cannot be negative")
+    except ValueError as e:
+        print(f"Invalid input: {e}. Defaulting to age 25.")
+        age = int(input())
+    return age
+
+def calculate_age_difference(user_age, bot_age=3):
+    age_difference = user_age - bot_age
+    print(f"You are {age_difference} years older than me. I'm only {bot_age} years old!")
+    return age_difference
+
+def get_favorite_color():
+    print("What's your favorite color?")
+    # Simulating user input
+    color = input() 
+    print(f"Oh, {color} is a beautiful color!")
+    return color
+
+def ask_about_programming():
+    print("Do you like programming?") 
+  #(yes/no)
+    # Simulating user input
+    likes_programming = input()  
+    if likes_programming.lower() == "yes":
+        print("That's great! Programming is a useful skill.")
+        def which_program():
+            print("Do you know any programming language?")
+            program = input()
+            if program.lower() == "yes":
+                print("Which program do you know?")
+                known_program=input()
+                print("Great")
+            elif program.lower() == "no":
+                def ask_language():
+                    print("Do you want to learn programming language?")
+                    language=input()
+                    if language.lower()=="yes":
+                        print("Great")
+                        def ask_preferred_language():
+                            print("Which programming language do you prefer?")
+                            # Simulating user input
+                            preferred_language = input() 
+                            if preferred_language.lower() == "python":
+                                print("Python is an excellent choice!")
+                            else:
+                                print(f"{preferred_language} is a good language too!")
+                        ask_preferred_language()
+                    
+                        
+                ask_language()
+            else:
+                    print("i didnt understad")
+        which_program()
+                
+    elif likes_programming.lower() == "no":
+        print("No worries, there are many other interesting things to explore.")
+    else:
+        print("I didn't understand your response.")
+    return likes_programming.lower() == "yes"
+
+
+
+
+
+def suggest_activity(likes_programming):
+    if likes_programming:
+        print("Would you like a programming challenge?")
+      #(yes/no)
+        # Simulating user input
+        wants_challenge = input()  
+        if wants_challenge.lower() == "yes":
+            print("Great! Try to solve this: Write a program to reverse a string.")
+        else:
+            print("Okay! How about reading a programming book or article instead?")
+    else:
+        print("Would you like to hear a joke instead?")
+        # Simulating user input
+        wants_joke = input() 
+        if wants_joke.lower() == "yes":
+            print("Why do programmers prefer dark mode? Because light attracts bugs!")
+        else:
+            print("No problem! Maybe you can explore a new hobby or watch a movie.")
+
+def main():
+    name = greet_user()
+    age = get_user_age()
+    age_difference = calculate_age_difference(age)
+    color = get_favorite_color()
+    likes_programming = ask_about_programming()
+    suggest_activity(likes_programming)
+    
+
+if __name__ == "__main__":
+    main()
