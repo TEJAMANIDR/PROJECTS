@@ -1,0 +1,71 @@
+"""Doctors = {"Dr.Akhilesh":['fever',  'cough',  'cold', 'headache', 'body pain'],"Dr.Manikaran":["diarrhea",  "stomachache"]}
+for i in Doctors.items():
+    print(i)"""
+    
+symptoms1=['fever',  'cough',  'cold', 'headache', 'body pain']
+symptoms2=["diarrhea",  "stomachache"]
+symptoms3= ["wound","infection"]
+
+
+
+# simple bot programming
+print('Hello!!!!','\n','Welcome to medical bot')
+def greet_user():
+    print("What is your name?")
+    # Simulating user input
+    global name
+    name = input()
+    print(f"Nice to meet you, {name}!")
+    
+
+def get_user_age():
+    print("How old are you?")
+    # Simulating user input
+    try:
+        global age
+        age = int(input())
+        if age < 0:
+            raise ValueError("Age cannot be negative")
+    except ValueError as e:
+        print(f"Invalid input: {e}. Defaulting to age 25.")
+        age = int(input())
+    
+
+
+def address():
+    print("Enter your address : ")
+    global patient_address
+    patient_address=input()
+    print("Thank you for your response")
+    
+
+def disease():
+    print("what health issue should i help you with?")
+    global health_issue,doctor
+    health_issue = input()
+    if health_issue.lower() in symptoms1:
+        doctor = "Dr.Akhilesh"
+        print("Hi I am Dr.Akhilesh, I understood your problem","\n", "Please contact +91 9745762309")
+    elif health_issue.lower() in symptoms2:
+        doctor = "Dr.Manikaran"
+        print("Hi I am Dr.Manikaran, I understood your problem","\n", "Please contact : +91 9126422778")
+    elif health_issue.lower() in symptoms3:
+        doctor = "Dr.Yohan"
+        print("Hi I am Dr.Yohan,I understood your problem","\n", "Please contact : +91 856412094")
+    else:
+        print("I understood your problem","\n","Please contact : +91 7963258410")
+        doctor = "Dr.Shanti"
+    
+
+
+def main():
+    name1 = greet_user()
+    age1 = get_user_age()
+    address1 = address()
+    disease1 = disease()
+    print("\n\n")
+    print("Patient Information :\n name : {}\n age : {}\npatient_address : {}\n health_issue : {}\n doctor assigned: {}".format(name,age,patient_address,health_issue,doctor))
+    
+
+if __name__ == "__main__":
+    main()
